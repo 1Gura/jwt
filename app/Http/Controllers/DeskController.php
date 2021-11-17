@@ -20,46 +20,46 @@ class DeskController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return void
      */
     public function store(Request $request)
     {
-        $desk = Desk::create($request->all());
-        return $desk;
+        return Desk::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Desk $desk
+     * @return Desk
      */
-    public function show($id)
+    public function show(Desk $desk): Desk
     {
-        //
+        return $desk;
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
+     * @return Desk
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Desk $desk)
     {
-        //
+        $desk->update($request->all());
+        return $desk;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return int
      */
-    public function destroy($id)
+    public function destroy(int $id): int
     {
-        //
+        return Desk::destroy($id);
     }
 }
