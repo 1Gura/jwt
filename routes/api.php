@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\DeskController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -28,8 +28,14 @@ Route::group([
     Route::group(['middleware' => 'auth:api'], function () {
         Route::apiResources([
             'desks' => DeskController::class,
+            'users' => UserController::class
         ]);
     });
+    Route::get('/desks/count', [DeskController::class, 'count'])->name('desks.count');
+
 });
 
-
+//Route::get('/desks/count', [DeskController::class, 'count'])->name('desks.count');
+//Route::apiResources([
+//    'users' => UserController::class
+//]);

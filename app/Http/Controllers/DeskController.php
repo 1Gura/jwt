@@ -12,15 +12,19 @@ class DeskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         return Desk::all();
+    }
+
+    public function count() {
+        return Desk::count();
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return void
      */
     public function store(Request $request)
@@ -42,7 +46,7 @@ class DeskController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param int $id
      * @return Desk
      */
